@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Kasir Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            margin: 8px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+    <h1> Program Kasir Sederhana</h1>
+    <label>Harga Barang (Rp):</label><br>
+    <input type="number" id="harga"><br>
+
+    <label>Jumlah Barang:</label><br>
+    <input type="number" id="jumlah"><br>
+
+    <button onclick="hitungTotal()">Hitung Total</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungTotal() {
+            let harga = document.getElementById("harga").value;
+            let jumlah = document.getElementById("jumlah").value;
+            let total = harga * jumlah;
+            let diskon = 0;
+
+            if (total > 100000) {
+                diskon = total * 0.1;
+            }
+
+            let totalBayar = total - diskon;
+
+            document.getElementById("hasil").innerHTML =
+                "Total Belanja: Rp " + total.toLocaleString() + "<br>" +
+                "Diskon: Rp " + diskon.toLocaleString() + "<br>" +
+                "Total Bayar: <b>Rp " + totalBayar.toLocaleString() + "</b>";
+        }
+    </script>
+</body>
+</html>
